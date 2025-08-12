@@ -1,0 +1,29 @@
+[project]
+name = "claude-conversation-extractor"
+version = "0.1.0"
+description = "A command-line tool to extract and convert Claude conversations to markdown format efficiently."
+readme = "README.md"
+authors = [
+    { name = "Jorge MB", email = "jmorenobl@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "click>=8.2.1",
+    "ijson>=3.4.0",
+    "pydantic>=2.11.7",
+    "rich>=14.1.0",
+]
+
+[project.scripts]
+claude-conversation-extractor = "claude_conversation_extractor.cli:main"
+claude-extract = "claude_conversation_extractor.cli:main"
+cce = "claude_conversation_extractor.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+]
