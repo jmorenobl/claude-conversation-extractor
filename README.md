@@ -21,6 +21,16 @@ This tool is **fully implemented and tested** with real Claude export data. It s
 
 ### Installation
 
+#### Option 1: From PyPI (Recommended)
+```bash
+# Install system-wide
+pip install claude-conversation-extractor
+
+# Or install for current user only
+pip install --user claude-conversation-extractor
+```
+
+#### Option 2: From Source
 ```bash
 # Clone the repository
 git clone <repository-url>
@@ -28,7 +38,17 @@ cd claude-conversation-extractor
 
 # Install dependencies
 uv sync
+
+# Install the tool
+pip install .
 ```
+
+#### Option 3: Platform-Specific
+- **macOS**: `pipx install claude-conversation-extractor` (recommended) or `brew install claude-conversation-extractor`
+- **Linux**: Use distribution package managers or build scripts
+- **Windows**: Use Chocolatey, Scoop, or build executable
+
+📖 **See [Installation Guide](docs/installation.md) for detailed instructions**
 
 ### Basic Usage
 
@@ -45,10 +65,19 @@ claude-extract extract \
 
 ## Available Commands
 
-The tool can be invoked using any of these names:
+After installation, the tool is available system-wide and can be invoked using any of these names:
 - `claude-extract` (recommended)
 - `cce` (shortest)
 - `claude-conversation-extractor` (full name)
+
+### System-wide Availability
+Once installed, you can use the tool from any directory:
+```bash
+# From anywhere on your system
+cce --help
+cce list -i /path/to/conversations.json
+cce extract -u <uuid> -i /path/to/conversations.json
+```
 
 ### Extract Command
 Extract a conversation by UUID and convert to markdown:
@@ -98,6 +127,25 @@ Generated markdown includes:
 - **Streaming Processing**: Uses `ijson` for memory-efficient JSON parsing
 - **Large File Support**: Successfully tested with 44MB+ export files
 - **Fast UUID Lookup**: Efficient conversation search without loading entire file
+
+## 📦 Distribution & Installation
+
+### Package Managers
+- **PyPI**: `pip install claude-conversation-extractor`
+- **Homebrew**: `brew install claude-conversation-extractor` (macOS)
+- **Chocolatey**: `choco install claude-conversation-extractor` (Windows)
+- **Scoop**: `scoop install claude-conversation-extractor` (Windows)
+
+### Build Scripts
+- **Linux**: `./scripts/build-linux.sh` - Creates .deb, .rpm, and Arch packages
+- **Windows**: `python scripts/build-windows.py` - Creates standalone executable
+
+### Docker
+```bash
+docker run --rm -v $(pwd):/work yourusername/claude-conversation-extractor --help
+```
+
+📖 **See [Distribution Guide](docs/distribution.md) for detailed build instructions**
 - **Memory Usage**: Constant memory usage regardless of file size
 
 ## Development

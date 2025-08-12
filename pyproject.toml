@@ -13,6 +13,26 @@ dependencies = [
     "pydantic>=2.11.7",
     "rich>=14.1.0",
 ]
+keywords = ["claude", "conversation", "extractor", "markdown", "cli", "anthropic"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Text Processing :: Markup",
+    "Topic :: Utilities",
+]
+license = { text = "MIT" }
+
+[project.urls]
+Homepage = "https://github.com/yourusername/claude-conversation-extractor"
+Documentation = "https://github.com/yourusername/claude-conversation-extractor#readme"
+Repository = "https://github.com/yourusername/claude-conversation-extractor.git"
+Issues = "https://github.com/yourusername/claude-conversation-extractor/issues"
 
 [project.scripts]
 claude-conversation-extractor = "claude_conversation_extractor.cli:main"
