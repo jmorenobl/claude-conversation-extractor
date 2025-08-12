@@ -34,7 +34,7 @@ def cli() -> None:
     "--output",
     "-o",
     type=click.Path(path_type=Path),
-    help="Output markdown file path (defaults to <uuid>.md)",
+    help="Output markdown file path (default: <uuid>.md)",
 )
 @click.option("--verbose", "-v", is_flag=True, help="Enable verbose output")
 def extract(uuid: str, input: Path, output: Path | None, verbose: bool) -> None:
@@ -98,7 +98,10 @@ def extract(uuid: str, input: Path, output: Path | None, verbose: bool) -> None:
     help="Path to the Claude export JSON file",
 )
 @click.option(
-    "-l", "--limit", default=10, help="Maximum number of conversations to list"
+    "-l",
+    "--limit",
+    default=10,
+    help="Maximum number of conversations to list (default: 10)",
 )
 def list_conversations(input: Path, limit: int) -> None:
     """List available conversations in the export file."""
