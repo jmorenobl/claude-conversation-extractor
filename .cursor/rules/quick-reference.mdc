@@ -1,3 +1,4 @@
+
 ---
 alwaysApply: true
 description: Main overview and quick reference for the entire project
@@ -53,6 +54,12 @@ uv run mypy src/
 - **List conversations** with metadata and search capabilities
 - **Handle large files** efficiently using streaming processing
 - **Rich CLI experience** with colors, emojis, and progress indicators
+
+## 🖥️ Available Commands
+The tool can be invoked using any of these names:
+- **`claude-extract`** (recommended)
+- **`cce`** (shortest)
+- **`claude-conversation-extractor`** (full name)
 
 ## 📖 Documentation
 - **[README.md](mdc:README.md)**: Quick start and overview

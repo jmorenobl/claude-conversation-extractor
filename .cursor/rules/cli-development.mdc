@@ -1,3 +1,4 @@
+
 ---
 globs: "src/claude_conversation_extractor/cli.py"
 description: Click framework usage, user experience, and CLI design patterns
@@ -25,7 +26,7 @@ description: Click framework usage, user experience, and CLI design patterns
 
 ## Command Structure
 - **Main group**: Use `@click.group()` for the main command
-- **Subcommands**: Organize related functionality into logical subcommands
+- **Subcommands**: Use `@cli.command()` decorator for subcommands
 - **Shared options**: Use Click contexts for options shared across commands
 - **Command aliases**: Support multiple names: `claude-extract`, `cce`, `claude-conversation-extractor`
 
@@ -46,3 +47,14 @@ description: Click framework usage, user experience, and CLI design patterns
 - **`list-conversations`**: List available conversations in export file
 - **Global options**: `--help`, `--version`, `--verbose`
 - **Command options**: See help text for each command's specific options
+
+## Rich Library Components
+- **Console**: Use `rich.console.Console` for output management
+- **Panel**: Use `rich.panel.Panel` for structured information display
+- **Text**: Use `rich.text.Text` for formatted text with styles and emojis
+
+## Click Decorator Pattern
+- **Main group**: `@click.group()` for the root command
+- **Subcommands**: `@cli.command()` for individual commands
+- **Options**: `@click.option()` for command-line arguments
+- **Version**: `@click.version_option()` for automatic version display

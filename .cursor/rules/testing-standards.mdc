@@ -1,3 +1,4 @@
+
 ---
 globs: "tests/*.py,test_*.py"
 description: Testing requirements, patterns, and best practices for the project
@@ -20,7 +21,7 @@ description: Testing requirements, patterns, and best practices for the project
 ## Test Organization
 - **Unit tests**: Test individual functions and methods in isolation
 - **Integration tests**: Test component interactions and data flow
-- **Mock testing**: Use mocks for external dependencies (file I/O, JSON parsing)
+- **Mock testing**: Use `unittest.mock` for external dependencies (file I/O, JSON parsing)
 - **Test data**: Use realistic test data that mirrors production scenarios
 
 ## Testing Patterns
@@ -40,6 +41,12 @@ description: Testing requirements, patterns, and best practices for the project
 - **Error handling**: Test invalid arguments and error conditions
 - **Output validation**: Verify correct output format and content
 
+## Current Test Structure
+- **Test file**: `tests/test_extractor.py` - Tests for the core extraction logic
+- **Test class**: `TestConversationExtractor` - Organized test cases
+- **Mock usage**: Extensive use of `unittest.mock` for file operations and ijson
+- **Coverage**: Tests cover initialization, streaming, searching, and error handling
+
 ## Running Tests
 ```bash
 # Run all tests
@@ -58,3 +65,9 @@ uv run pytest tests/test_extractor.py -v
 - **Minimal assertions**: Each test should verify one specific behavior
 - **Fast execution**: Tests should run quickly (< 1 second per test)
 - **No side effects**: Tests should not modify global state or external resources
+
+## Mock Testing Strategy
+- **File operations**: Mock `pathlib.Path.exists` and `builtins.open`
+- **JSON parsing**: Mock `ijson.items` for controlled test data
+- **Error simulation**: Use mocks to simulate various error conditions
+- **Isolation**: Ensure each test is completely independent

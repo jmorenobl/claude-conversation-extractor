@@ -1,3 +1,4 @@
+
 ---
 globs: "src/claude_conversation_extractor/extractor.py,src/claude_conversation_extractor/models.py"
 description: Streaming JSON processing, memory efficiency, and data validation patterns
@@ -10,6 +11,12 @@ description: Streaming JSON processing, memory efficiency, and data validation p
 - **Generator functions**: Use `yield` to process data incrementally
 - **Memory constant**: Maintain constant memory usage regardless of file size
 - **Large file support**: Handle files of any size without memory issues
+
+## ijson Implementation Details
+- **Direct item parsing**: Use `ijson.items(f, "item")` for streaming conversation objects
+- **Binary file mode**: Open files in `"rb"` mode for optimal ijson performance
+- **Error handling**: Catch `ijson.JSONError` for malformed JSON files
+- **Streaming validation**: Validate each conversation as it's streamed
 
 ## Data Validation with Pydantic
 - **Model validation**: Use Pydantic models for all data structures

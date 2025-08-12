@@ -1,3 +1,4 @@
+
 ---
 alwaysApply: true
 description: Development process, tools, and quality assurance requirements
@@ -59,3 +60,20 @@ description: Development process, tools, and quality assurance requirements
 - **Code quality**: Automated linting and type checking
 - **Coverage reporting**: Track test coverage over time
 - **Performance monitoring**: Monitor memory usage and processing speed
+
+## Project-Specific Commands
+```bash
+# Install dependencies
+uv sync --dev
+
+# Run tests
+uv run pytest tests/ -v
+
+# Code quality checks
+uv run ruff check src/
+uv run ruff format src/
+uv run mypy src/
+
+# Run the tool
+uv run claude-extract --help
+```

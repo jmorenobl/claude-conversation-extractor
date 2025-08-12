@@ -1,4 +1,9 @@
 
+---
+description: High-level project structure and purpose
+alwaysApply: false
+---
+
 # Claude Conversation Extractor - Project Overview
 
 This is a production-ready command-line tool for extracting specific conversations from Claude export files and converting them to readable markdown format.
@@ -15,16 +20,16 @@ This is a production-ready command-line tool for extracting specific conversatio
 - **Streaming JSON Processing**: Uses `ijson` for memory-efficient handling of large files (tested with 44MB+ files)
 - **UUID-based Extraction**: Find and extract conversations by unique identifier
 - **Markdown Conversion**: Clean, readable output with emoji-based sender identification
-- **Rich CLI**: Beautiful terminal interface with progress indicators and colors
+- **Rich CLI**: Beautiful terminal interface with progress indicators and colors using Rich library
 - **Type Safety**: Full type hints with MyPy validation and Pydantic models
 
 ## Available Commands
 - `claude-extract extract` - Extract conversation by UUID and convert to markdown
 - `claude-extract list-conversations` - List available conversations in export file
-- Multiple aliases: `cce`, `claude-conversation-extractor`
+- Multiple aliases: `claude-extract`, `cce`, `claude-conversation-extractor`
 
 ## Architecture Principles
 - **SOLID Design**: Modular, single-responsibility components
-- **Memory Efficiency**: Constant memory usage regardless of file size
+- **Memory Efficiency**: Constant memory usage regardless of file size through streaming
 - **Error Handling**: Comprehensive exception handling and validation
-- **Testing**: Full test suite with 100% pass rate
+- **Testing**: Full test suite with 100% pass rate using pytest
