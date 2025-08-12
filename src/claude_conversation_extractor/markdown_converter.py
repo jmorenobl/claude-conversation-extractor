@@ -2,7 +2,7 @@
 
 from datetime import datetime
 
-from .models import ChatMessage, Conversation
+from .models import ChatMessage, Conversation, FileObject
 
 
 class MarkdownConverter:
@@ -78,7 +78,7 @@ class MarkdownConverter:
         # Message content
         if message.content:
             for content_item in message.content:
-                if content_item.type == "text":
+                if content_item.type == "text" and content_item.text:
                     # Format the text content
                     formatted_text = self._format_text_content(content_item.text)
                     lines.append(formatted_text)
@@ -88,13 +88,42 @@ class MarkdownConverter:
         if message.attachments:
             lines.append("**Attachments:**")
             for attachment in message.attachments:
-                lines.append(f"- {attachment}")
+                lines.extend(self._format_file_object(attachment))
             lines.append("")
 
         if message.files:
             lines.append("**Files:**")
             for file in message.files:
-                lines.append(f"- {file}")
+                lines.extend(self._format_file_object(file))
+            lines.append("")
+
+        return lines
+
+    def _format_file_object(self, file_obj: FileObject) -> list[str]:
+        """Format a file object as markdown.
+
+        Args:
+            file_obj: The file object to format
+
+        Returns:
+            List of markdown lines for the file
+        """
+        lines = []
+
+        # Basic file info
+        file_info = f"- **{file_obj.file_name}**"
+        if file_obj.file_size:
+            file_info += f" ({file_obj.file_size} bytes)"
+        if file_obj.file_type:
+            file_info += f" - {file_obj.file_type}"
+        lines.append(file_info)
+
+        # File content if available
+        if file_obj.extracted_content:
+            lines.append("")
+            lines.append("```")
+            lines.append(file_obj.extracted_content)
+            lines.append("```")
             lines.append("")
 
         return lines

@@ -18,13 +18,22 @@ class Citation(BaseModel):
     pass
 
 
+class FileObject(BaseModel):
+    """File attachment information."""
+
+    file_name: str
+    file_size: int | None = None
+    file_type: str | None = None
+    extracted_content: str | None = None
+
+
 class Content(BaseModel):
     """Message content with timestamps."""
 
-    start_timestamp: datetime
-    stop_timestamp: datetime
+    start_timestamp: datetime | None = None
+    stop_timestamp: datetime | None = None
     type: str
-    text: str
+    text: str | None = None
     citations: list[Citation] = Field(default_factory=list)
 
 
@@ -37,8 +46,8 @@ class ChatMessage(BaseModel):
     sender: str  # "human" or "assistant"
     created_at: datetime
     updated_at: datetime
-    attachments: list[str] = Field(default_factory=list)
-    files: list[str] = Field(default_factory=list)
+    attachments: list[FileObject] = Field(default_factory=list)
+    files: list[FileObject] = Field(default_factory=list)
 
 
 class Conversation(BaseModel):
