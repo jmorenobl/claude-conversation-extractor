@@ -97,7 +97,9 @@ def extract(uuid: str, input: Path, output: Path | None, verbose: bool) -> None:
     type=click.Path(exists=True, path_type=Path),
     help="Path to the Claude export JSON file",
 )
-@click.option("-l", "--limit", default=10, help="Maximum number of conversations to list")
+@click.option(
+    "-l", "--limit", default=10, help="Maximum number of conversations to list"
+)
 def list_conversations(input: Path, limit: int) -> None:
     """List available conversations in the export file."""
     try:

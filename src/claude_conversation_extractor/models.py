@@ -7,17 +7,20 @@ from pydantic import BaseModel, Field, RootModel
 
 class Account(BaseModel):
     """Account information."""
+
     uuid: str
 
 
 class Citation(BaseModel):
     """Citation information."""
+
     # Add citation fields as needed based on the actual data structure
     pass
 
 
 class Content(BaseModel):
     """Message content with timestamps."""
+
     start_timestamp: datetime
     stop_timestamp: datetime
     type: str
@@ -27,6 +30,7 @@ class Content(BaseModel):
 
 class ChatMessage(BaseModel):
     """Individual chat message."""
+
     uuid: str
     text: str
     content: list[Content]
@@ -39,6 +43,7 @@ class ChatMessage(BaseModel):
 
 class Conversation(BaseModel):
     """Complete conversation with messages."""
+
     uuid: str
     name: str
     created_at: datetime

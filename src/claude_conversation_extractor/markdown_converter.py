@@ -31,8 +31,12 @@ class MarkdownConverter:
         # Metadata
         lines.append("## Conversation Details")
         lines.append(f"- **UUID**: `{self.conversation.uuid}`")
-        lines.append(f"- **Created**: {self._format_timestamp(self.conversation.created_at)}")
-        lines.append(f"- **Updated**: {self._format_timestamp(self.conversation.updated_at)}")
+        lines.append(
+            f"- **Created**: {self._format_timestamp(self.conversation.created_at)}"
+        )
+        lines.append(
+            f"- **Updated**: {self._format_timestamp(self.conversation.updated_at)}"
+        )
         lines.append(f"- **Account**: `{self.conversation.account.uuid}`")
         lines.append("")
 
