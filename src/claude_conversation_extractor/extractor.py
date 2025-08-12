@@ -1,7 +1,7 @@
 """Core conversation extraction logic."""
 
+from collections.abc import Iterator
 from pathlib import Path
-from typing import Iterator, Optional
 
 import ijson
 
@@ -46,7 +46,7 @@ class ConversationExtractor:
                     print(f"Warning: Skipping invalid conversation: {e}")
                     continue
 
-    def find_conversation(self, uuid: str) -> Optional[Conversation]:
+    def find_conversation(self, uuid: str) -> Conversation | None:
         """Find a conversation by its UUID using streaming.
 
         Args:
@@ -61,7 +61,7 @@ class ConversationExtractor:
 
         return None
 
-    def extract_conversation(self, uuid: str) -> Optional[Conversation]:
+    def extract_conversation(self, uuid: str) -> Conversation | None:
         """Extract conversation by UUID using streaming.
 
         Args:

@@ -2,7 +2,6 @@
 
 import sys
 from pathlib import Path
-from typing import Optional
 
 import click
 from rich.console import Console
@@ -17,7 +16,7 @@ console = Console()
 
 @click.group()
 @click.version_option()
-def cli():
+def cli() -> None:
     """Extract Claude conversations from JSON exports and convert to markdown."""
     pass
 
@@ -38,7 +37,7 @@ def cli():
     help="Output markdown file path (defaults to <uuid>.md)",
 )
 @click.option("--verbose", "-v", is_flag=True, help="Enable verbose output")
-def extract(uuid: str, input: Path, output: Optional[Path], verbose: bool):
+def extract(uuid: str, input: Path, output: Path | None, verbose: bool) -> None:
     """Extract a conversation by UUID and convert to markdown."""
     try:
         if verbose:
@@ -63,7 +62,6 @@ def extract(uuid: str, input: Path, output: Optional[Path], verbose: bool):
 
         # Convert to markdown
         converter = MarkdownConverter(conversation)
-        markdown_content = converter.convert()
 
         # Determine output path
         if output is None:
@@ -99,10 +97,8 @@ def extract(uuid: str, input: Path, output: Optional[Path], verbose: bool):
     type=click.Path(exists=True, path_type=Path),
     help="Path to the Claude export JSON file",
 )
-@click.option(
-    "--limit", "-l", default=10, help="Maximum number of conversations to list"
-)
-def list_conversations(input: Path, limit: int):
+@click.option("-l", "--limit", default=10, help="Maximum number of conversations to list")
+def list_conversations(input: Path, limit: int) -> None:
     """List available conversations in the export file."""
     try:
         console.print(f"🔍 Loading export file: {input}")
@@ -141,7 +137,7 @@ def list_conversations(input: Path, limit: int):
         sys.exit(1)
 
 
-def main():
+def main() -> None:
     """Main entry point for the CLI."""
     cli()
 

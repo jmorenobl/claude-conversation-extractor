@@ -1,7 +1,7 @@
 """Tests for the conversation extractor."""
 
 from pathlib import Path
-from unittest.mock import mock_open, patch
+from unittest.mock import Mock, mock_open, patch
 
 import pytest
 
@@ -11,13 +11,13 @@ from claude_conversation_extractor.extractor import ConversationExtractor
 class TestConversationExtractor:
     """Test cases for ConversationExtractor."""
 
-    def test_init(self):
+    def test_init(self) -> None:
         """Test extractor initialization."""
         extractor = ConversationExtractor("test.json")
         assert extractor.export_file_path == Path("test.json")
 
     @patch("pathlib.Path.exists")
-    def test_stream_conversations_file_not_found(self, mock_exists):
+    def test_stream_conversations_file_not_found(self, mock_exists: Mock) -> None:
         """Test streaming from non-existent export file."""
         mock_exists.return_value = False
 
@@ -30,8 +30,8 @@ class TestConversationExtractor:
     @patch("builtins.open", new_callable=mock_open)
     @patch("ijson.items")
     def test_stream_conversations_success(
-        self, mock_ijson_items, mock_file, mock_exists
-    ):
+        self, mock_ijson_items: Mock, mock_file: Mock, mock_exists: Mock
+    ) -> None:
         """Test successful conversation streaming."""
         mock_exists.return_value = True
 
@@ -59,8 +59,8 @@ class TestConversationExtractor:
     @patch("builtins.open", new_callable=mock_open)
     @patch("ijson.items")
     def test_find_conversation_not_found(
-        self, mock_ijson_items, mock_file, mock_exists
-    ):
+        self, mock_ijson_items: Mock, mock_file: Mock, mock_exists: Mock
+    ) -> None:
         """Test finding non-existent conversation."""
         mock_exists.return_value = True
 
@@ -74,7 +74,9 @@ class TestConversationExtractor:
     @patch("pathlib.Path.exists")
     @patch("builtins.open", new_callable=mock_open)
     @patch("ijson.items")
-    def test_find_conversation_found(self, mock_ijson_items, mock_file, mock_exists):
+    def test_find_conversation_found(
+        self, mock_ijson_items: Mock, mock_file: Mock, mock_exists: Mock
+    ) -> None:
         """Test finding existing conversation."""
         mock_exists.return_value = True
 
@@ -101,7 +103,9 @@ class TestConversationExtractor:
     @patch("pathlib.Path.exists")
     @patch("builtins.open", new_callable=mock_open)
     @patch("ijson.items")
-    def test_get_conversation_count(self, mock_ijson_items, mock_file, mock_exists):
+    def test_get_conversation_count(
+        self, mock_ijson_items: Mock, mock_file: Mock, mock_exists: Mock
+    ) -> None:
         """Test getting conversation count."""
         mock_exists.return_value = True
 
@@ -142,8 +146,8 @@ class TestConversationExtractor:
     @patch("builtins.open", new_callable=mock_open)
     @patch("ijson.items")
     def test_list_conversations_with_limit(
-        self, mock_ijson_items, mock_file, mock_exists
-    ):
+        self, mock_ijson_items: Mock, mock_file: Mock, mock_exists: Mock
+    ) -> None:
         """Test listing conversations with limit."""
         mock_exists.return_value = True
 
