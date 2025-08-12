@@ -24,10 +24,10 @@ This tool is **fully implemented and tested** with real Claude export data. It s
 #### Option 1: From PyPI (Recommended)
 ```bash
 # Install system-wide
-pip install claude-conversation-extractor
+pip install claude-chat-extractor
 
 # Or install for current user only
-pip install --user claude-conversation-extractor
+pip install --user claude-chat-extractor
 ```
 
 #### Option 2: From Source
@@ -131,10 +131,10 @@ Generated markdown includes:
 ## 📦 Distribution & Installation
 
 ### Package Managers
-- **PyPI**: `pip install claude-conversation-extractor`
-- **Homebrew**: `brew install claude-conversation-extractor` (macOS)
-- **Chocolatey**: `choco install claude-conversation-extractor` (Windows)
-- **Scoop**: `scoop install claude-conversation-extractor` (Windows)
+- **PyPI**: `pip install claude-chat-extractor`
+- **Homebrew**: `brew install claude-chat-extractor` (macOS)
+- **Chocolatey**: `choco install claude-chat-extractor` (Windows)
+- **Scoop**: `scoop install claude-chat-extractor` (Windows)
 
 ### Build Scripts
 - **Linux**: `./scripts/build-linux.sh` - Creates .deb, .rpm, and Arch packages
