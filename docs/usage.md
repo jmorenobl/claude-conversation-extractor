@@ -10,7 +10,7 @@ The tool is installed as a Python package and can be used in two ways:
 claude-extract extract --uuid <uuid> --input <file.json> --output <output.md>
 
 # List conversations
-claude-extract list --input <file.json>
+claude-extract list-conversations --input <file.json>
 ```
 
 ### As a Python Module
@@ -25,7 +25,7 @@ Extract a specific conversation by UUID and convert to markdown.
 
 **Syntax:**
 ```bash
-claude-conversation-extractor extract [OPTIONS]
+claude-extract extract [OPTIONS]
 ```
 
 **Options:**
@@ -52,7 +52,7 @@ List available conversations in an export file.
 
 **Syntax:**
 ```bash
-claude-conversation-extractor list [OPTIONS]
+claude-extract list-conversations [OPTIONS]
 ```
 
 **Options:**
@@ -63,40 +63,73 @@ claude-conversation-extractor list [OPTIONS]
 **Examples:**
 ```bash
 # List first 10 conversations
-claude-extract list -i data/conversations.json
+claude-extract list-conversations -i data/conversations.json
 
 # List first 5 conversations
-claude-extract list -i data/conversations.json -l 5
+claude-extract list-conversations -i data/conversations.json -l 5
+```
+
+## Real-World Example
+
+Here's an actual example using the tool with real data:
+
+```bash
+# List conversations to find one to extract
+claude-extract list-conversations -i data/conversations.json -l 3
+
+# Output:
+🔍 Loading export file: data/conversations.json
+
+📋 Found 728 conversations
+Showing first 3:
+
+1. Untitled (6c92cf7d-5739-4694-a3e1-f337497971fb)
+   📅 2024-07-23 18:38:03 | 💬 0 messages
+
+2. Strategies for Crafting Effective Prompts (28d595a3-5db0-492d-a49a-af74f13de505)
+   📅 2024-07-23 09:52:56 | 💬 2 messages
+
+3. Asynchronous ClickHouse Client Connection (4b9569b1-e31f-4f88-91ef-6a24a313527f)
+   📅 2024-07-19 23:05:05 | 💬 2 messages
+
+# Extract the "Strategies for Crafting Effective Prompts" conversation
+claude-extract extract \
+  -u 28d595a3-5db0-492d-a49a-af74f13de505 \
+  -i data/conversations.json \
+  -o strategies_for_prompts.md
+
+# Output:
+✅ Conversation extracted successfully!
+📁 Output: strategies_for_prompts.md
+💬 Messages: 2
 ```
 
 ## Input File Format
 
-The tool expects a JSON file with the following structure:
+The tool expects a JSON file with Claude export data containing:
 ```json
-{
-  "conversations": [
-    {
-      "uuid": "conversation-uuid",
-      "name": "Conversation Name",
-      "created_at": "2024-01-01T00:00:00Z",
-      "updated_at": "2024-01-01T00:00:00Z",
-      "account": {
-        "uuid": "account-uuid"
-      },
-      "chat_messages": [
-        {
-          "uuid": "message-uuid",
-          "text": "Message text",
-          "sender": "human|assistant",
-          "created_at": "2024-01-01T00:00:00Z",
-          "content": [...],
-          "attachments": [],
-          "files": []
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "uuid": "conversation-uuid",
+    "name": "Conversation Name",
+    "created_at": "2024-01-01T00:00:00Z",
+    "updated_at": "2024-01-01T00:00:00Z",
+    "account": {
+      "uuid": "account-uuid"
+    },
+    "chat_messages": [
+      {
+        "uuid": "message-uuid",
+        "text": "Message text",
+        "sender": "human|assistant",
+        "created_at": "2024-01-01T00:00:00Z",
+        "content": [...],
+        "attachments": [],
+        "files": []
+      }
+    ]
+  }
+]
 ```
 
 ## Output Format
@@ -147,7 +180,7 @@ Enable verbose mode with `-v` flag to see:
 ### Extract a Specific Conversation
 ```bash
 # Find the conversation UUID first
-claude-extract list -i data/conversations.json
+claude-extract list-conversations -i data/conversations.json
 
 # Extract the conversation
 claude-extract extract \
@@ -162,4 +195,46 @@ claude-extract extract \
 for uuid in uuid1 uuid2 uuid3; do
   claude-extract extract -u $uuid -i data/conversations.json
 done
+```
+
+### Working with Large Files
+
+The tool is designed to handle large export files efficiently:
+
+```bash
+# Even with 44MB+ files containing 728+ conversations
+claude-extract list-conversations -i data/conversations.json -l 5
+
+# Memory usage remains constant regardless of file size
+claude-extract extract -u <uuid> -i data/conversations.json -v
+```
+
+## Performance Tips
+
+- **Use streaming**: The tool automatically uses streaming JSON parsing for memory efficiency
+- **Limit listing**: Use the `-l` flag to limit the number of conversations listed
+- **Verbose mode**: Use `-v` for debugging and monitoring progress
+- **Output naming**: Use descriptive output filenames for better organization
+
+## Troubleshooting
+
+### Common Issues
+
+1. **File not found**: Ensure the input file path is correct and the file exists
+2. **Permission denied**: Check file permissions and ensure you have read access
+3. **Invalid JSON**: Verify the export file is valid JSON format
+4. **Conversation not found**: Double-check the UUID spelling and case
+
+### Getting Help
+
+```bash
+# Show general help
+claude-extract --help
+
+# Show command-specific help
+claude-extract extract --help
+claude-extract list-conversations --help
+
+# Show version
+claude-extract --version
 ```
