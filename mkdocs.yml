@@ -1,0 +1,58 @@
+site_name: Claude Conversation Extractor
+site_description: Extract and convert Claude conversations to Markdown via a fast, memory-efficient CLI.
+site_url: https://jmorenobl.github.io/claude-conversation-extractor/
+repo_url: https://github.com/jmorenobl/claude-conversation-extractor
+repo_name: jmorenobl/claude-conversation-extractor
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - content.code.copy
+    - toc.integrate
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths:
+            - src
+          options:
+            docstring_style: google
+            show_root_heading: true
+            show_source: true
+            separate_signature: true
+            heading_level: 2
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - tables
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+
+nav:
+  - Overview: index.md
+  - Installation: installation.md
+  - Usage: usage.md
+  - Reference:
+      - API:
+          - CLI: reference/cli.md
+          - Extractor: reference/extractor.md
+          - Markdown Converter: reference/markdown_converter.md
+          - Models: reference/models.md
+  - Development:
+      - Requirements: requirements.md
+      - Implementation Status: implementation-status.md
+      - Distribution:
+          - Overview: distribution.md
+          - Summary: distribution-summary.md
+      - Version Management: version-management.md
+      - Coding Standards: coding-standards.md
+

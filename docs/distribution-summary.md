@@ -188,8 +188,8 @@ ENTRYPOINT ["cce"]
 
 ## 📚 Additional Resources
 
-- **Installation Guide**: `docs/installation.md`
-- **Distribution Guide**: `docs/distribution.md`
+- **Installation Guide**: `installation.md`
+- **Distribution Guide**: `distribution.md`
 - **Build Scripts**: `scripts/` directory
 - **Homebrew Template**: `homebrew/claude-conversation-extractor.rb`
 - **CI/CD Workflow**: `.github/workflows/release.yml`

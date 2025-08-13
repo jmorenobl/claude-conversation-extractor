@@ -219,9 +219,18 @@ uv run claude-extract --help
 
 ## Documentation
 
+- Live site: https://jmorenobl.github.io/claude-conversation-extractor/
 - [Requirements](docs/requirements.md) - Detailed project requirements and specifications
 - [Usage Guide](docs/usage.md) - Comprehensive usage instructions and examples
 - [Implementation Status](docs/implementation-status.md) - Current implementation details and technical overview
+
+### Build docs locally
+
+```bash
+uv run pip install mkdocs mkdocs-material mkdocstrings mkdocstrings-python
+uv run mkdocs serve
+# open http://127.0.0.1:8000/
+```
 
 ## Contributing
 

@@ -320,7 +320,7 @@ rm -rf ~/.config/claude-conversation-extractor
 
 After successful installation:
 
-1. **Read the Usage Guide**: See `docs/usage.md` for detailed usage examples
+1. **Read the Usage Guide**: See `usage.md` for detailed usage examples
 2. **Check Requirements**: Ensure you have the required input format
 3. **Test with Sample Data**: Try the tool with a small export file first
 4. **Explore Features**: Use `cce --help` to see all available options
@@ -332,4 +332,4 @@ If you encounter issues:
 1. Check this troubleshooting section
 2. Review the [GitHub Issues](https://github.com/yourusername/claude-conversation-extractor/issues)
 3. Create a new issue with details about your system and error messages
-4. Check the [Requirements](docs/requirements.md) for system compatibility
+4. Check the [Requirements](requirements.md) for system compatibility

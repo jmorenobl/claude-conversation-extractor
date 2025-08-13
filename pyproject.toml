@@ -30,7 +30,7 @@ license = { text = "MIT" }
 
 [project.urls]
 Homepage = "https://github.com/jmorenobl/claude-conversation-extractor"
-Documentation = "https://github.com/jmorenobl/claude-conversation-extractor#readme"
+Documentation = "https://jmorenobl.github.io/claude-conversation-extractor/"
 Repository = "https://github.com/jmorenobl/claude-conversation-extractor.git"
 Issues = "https://github.com/jmorenobl/claude-conversation-extractor/issues"
 
@@ -53,6 +53,10 @@ dev = [
     "pytest>=8.4.1",
     "ruff>=0.12.8",
     "twine>=6.1.0",
+    "mkdocs>=1.6.0",
+    "mkdocs-material>=9.5.0",
+    "mkdocstrings>=0.26.0",
+    "mkdocstrings-python>=1.10.5",
 ]
 
 [tool.ruff]
