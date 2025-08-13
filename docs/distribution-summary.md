@@ -1,6 +1,6 @@
 # Distribution Summary
 
-This document provides a quick overview of all the ways to make `claude-conversation-extractor` available system-wide across different platforms.
+This document provides a quick overview of all the ways to make `claude-chat-extractor` available system-wide across different platforms.
 
 ## 🚀 Quick Start - Choose Your Platform
 
@@ -8,7 +8,7 @@ This document provides a quick overview of all the ways to make `claude-conversa
 ```bash
 # Easiest method (recommended)
 brew install pipx
-pipx install claude-conversation-extractor
+pipx install claude-chat-extractor
 
 # Alternative: Build Homebrew formula
 # See docs/distribution.md for details
@@ -18,11 +18,11 @@ pipx install claude-conversation-extractor
 ```bash
 # Debian/Ubuntu
 sudo apt install python3-pip
-pip3 install --user claude-conversation-extractor
+pip3 install --user claude-chat-extractor
 
 # Fedora/RHEL
 sudo dnf install python3-pip
-pip3 install --user claude-conversation-extractor
+pip3 install --user claude-chat-extractor
 
 # Or use build scripts
 ./scripts/build-linux.sh
@@ -31,19 +31,19 @@ pip3 install --user claude-conversation-extractor
 ### 🪟 Windows
 ```bash
 # Via pip
-pip install claude-conversation-extractor
+pip install claude-chat-extractor
 
 # Or build executable
 python scripts/build-windows.py
 
 # Or use package managers (🚧 Coming Soon)
-# choco install claude-conversation-extractor
-# scoop install claude-conversation-extractor
+# choco install claude-chat-extractor
+# scoop install claude-chat-extractor
 ```
 
 ### 🌐 All Platforms (PyPI)
 ```bash
-pip install claude-conversation-extractor
+pip install claude-chat-extractor
 ```
 
 ## 📦 Distribution Methods
@@ -60,7 +60,7 @@ python -m build
 python -m twine upload dist/*
 
 # Users install with
-pip install claude-conversation-extractor
+pip install claude-chat-extractor
 ```
 
 ### 2. **pipx Installation** ⭐ (macOS/Linux)
@@ -71,7 +71,7 @@ pip install claude-conversation-extractor
 **Setup**:
 ```bash
 # Users install with
-pipx install claude-conversation-extractor
+pipx install claude-chat-extractor
 ```
 
 ### 3. **Homebrew (macOS)** 🚧 **Coming Soon**
@@ -82,7 +82,7 @@ pipx install claude-conversation-extractor
 **Setup**:
 ```bash
 # Create formula and submit to Homebrew (🚧 Coming Soon)
-# See homebrew/claude-conversation-extractor.rb template
+# See homebrew/claude-chat-extractor.rb template
 ```
 
 ### 4. **Linux Package Managers**
@@ -125,9 +125,9 @@ ENTRYPOINT ["cce"]
 ## 🎯 Recommended Approach by User Type
 
 ### **End Users (Non-Developers)**
-- **macOS**: `pipx install claude-conversation-extractor`
-- **Linux**: `pip install claude-conversation-extractor`
-- **Windows**: `pip install claude-conversation-extractor`
+- **macOS**: `pipx install claude-chat-extractor`
+- **Linux**: `pip install claude-chat-extractor`
+- **Windows**: `pip install claude-chat-extractor`
 
 ### **System Administrators**
 - **Linux**: Use distribution packages (`.deb`, `.rpm`)
@@ -135,7 +135,7 @@ ENTRYPOINT ["cce"]
 - **macOS**: Use pipx or pip installation (Homebrew 🚧 Coming Soon)
 
 ### **Developers**
-- **All platforms**: `pip install claude-conversation-extractor`
+- **All platforms**: `pip install claude-chat-extractor`
 - **Development**: `pip install -e .`
 
 ### **Enterprise Deployment**
@@ -191,7 +191,7 @@ ENTRYPOINT ["cce"]
 - **Installation Guide**: `installation.md`
 - **Distribution Guide**: `distribution.md`
 - **Build Scripts**: `scripts/` directory
-- **Homebrew Template**: `homebrew/claude-conversation-extractor.rb`
+- **Homebrew Template**: `homebrew/claude-chat-extractor.rb`
 - **CI/CD Workflow**: `.github/workflows/release.yml`
 
 ## 🎉 Success Metrics

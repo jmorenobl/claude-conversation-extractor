@@ -1,6 +1,8 @@
-# Claude Conversation Extractor
+# Claude Chat Extractor
 
 Fast, memory-efficient CLI to extract specific conversations from Claude export JSON files and convert them to clean Markdown.
+
+> **Note:** Before using this tool, you must first export your conversations from Claude. Download your Claude conversation export as a JSON file from the Claude web interface, then use this tool to process it.
 
 ## Highlights
 

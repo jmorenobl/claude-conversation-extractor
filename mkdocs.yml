@@ -1,4 +1,4 @@
-site_name: Claude Conversation Extractor
+site_name: Claude Chat Extractor
 site_description: Extract and convert Claude conversations to Markdown via a fast, memory-efficient CLI.
 site_url: https://jmorenobl.github.io/claude-conversation-extractor/
 repo_url: https://github.com/jmorenobl/claude-conversation-extractor

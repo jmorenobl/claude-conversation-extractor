@@ -1,7 +1,7 @@
 class ClaudeConversationExtractor < Formula
   desc "Extract Claude conversations to markdown format efficiently"
   homepage "https://github.com/yourusername/claude-conversation-extractor"
-  url "https://files.pythonhosted.org/packages/source/c/claude-conversation-extractor/claude-conversation-extractor-0.1.0.tar.gz"
+  url "https://files.pythonhosted.org/packages/source/c/claude-chat-extractor/claude-chat-extractor-0.1.0.tar.gz"
   sha256 "YOUR_SHA256_HERE"
   license "MIT"
   head "https://github.com/yourusername/claude-conversation-extractor.git", branch: "main"

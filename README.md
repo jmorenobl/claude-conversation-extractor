@@ -44,7 +44,7 @@ pip install .
 ```
 
 #### Option 3: Platform-Specific
-- **macOS**: `pipx install claude-conversation-extractor` (recommended) or `pip install claude-conversation-extractor`
+- **macOS**: `pipx install claude-chat-extractor` (recommended) or `pip install claude-chat-extractor`
 - **Linux**: Use distribution package managers or build scripts
 - **Windows**: Use pip installation or build executable
 
@@ -87,7 +87,7 @@ claude-extract extract \
 After installation, the tool is available system-wide and can be invoked using any of these names:
 - `claude-extract` (recommended)
 - `cce` (shortest)
-- `claude-conversation-extractor` (full name)
+- `claude-chat-extractor` (full name)
 
 ### System-wide Availability
 Once installed, you can use the tool from any directory:
@@ -161,7 +161,7 @@ Generated markdown includes:
 
 ### Docker
 ```bash
-docker run --rm -v $(pwd):/work yourusername/claude-conversation-extractor --help
+docker run --rm -v $(pwd):/work yourusername/claude-chat-extractor --help
 ```
 
 📖 **See [Distribution Guide](docs/distribution.md) for detailed build instructions**

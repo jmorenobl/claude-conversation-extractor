@@ -1,6 +1,6 @@
 # Installation Guide
 
-This guide covers how to install `claude-conversation-extractor` on different platforms and make it available system-wide.
+This guide covers how to install `claude-chat-extractor` on different platforms and make it available system-wide.
 
 ## 📦 Installation Methods Status
 
@@ -20,7 +20,7 @@ This guide covers how to install `claude-conversation-extractor` on different pl
 
 ### From PyPI (Recommended)
 ```bash
-pip install claude-conversation-extractor
+pip install claude-chat-extractor
 ```
 
 ### From Source
@@ -37,10 +37,10 @@ pip install .
 #### Global Installation
 ```bash
 # Install for all users (requires admin/sudo)
-sudo pip install claude-conversation-extractor
+sudo pip install claude-chat-extractor
 
 # Install for current user only
-pip install --user claude-conversation-extractor
+pip install --user claude-chat-extractor
 ```
 
 #### Virtual Environment Installation
@@ -50,18 +50,18 @@ python -m venv claude-env
 source claude-env/bin/activate  # On Windows: claude-env\Scripts\activate
 
 # Install in virtual environment
-pip install claude-conversation-extractor
+pip install claude-chat-extractor
 ```
 
 #### Verify Installation
 ```bash
 # Check if commands are available
-claude-conversation-extractor --help
+claude-chat-extractor --help
 claude-extract --help
 cce --help
 
 # Check version
-claude-conversation-extractor --version
+claude-chat-extractor --version
 ```
 
 ### 🍎 macOS
@@ -72,18 +72,18 @@ claude-conversation-extractor --version
 brew install pipx
 
 # Install the tool
-pipx install claude-conversation-extractor
+pipx install claude-chat-extractor
 ```
 
 #### Homebrew (Alternative) 🚧 **Not Yet Implemented**
 ```bash
 # Install via Homebrew (requires creating a formula first)
 # ⚠️  WARNING: This method is not yet implemented
-# brew install claude-conversation-extractor
+# brew install claude-chat-extractor
 
 # Or if using a custom tap
 # brew tap yourusername/tap
-# brew install claude-conversation-extractor
+# brew install claude-chat-extractor
 ```
 
 **Note**: Homebrew installation is planned but not yet available. For now, please use pip or pipx installation methods above.
@@ -94,7 +94,7 @@ pipx install claude-conversation-extractor
 brew install python@3.12
 
 # Install the tool
-pip3 install claude-conversation-extractor
+pip3 install claude-chat-extractor
 ```
 
 #### PATH Configuration
@@ -112,7 +112,7 @@ sudo apt update
 sudo apt install python3-pip python3-venv
 
 # Install the tool
-pip3 install --user claude-conversation-extractor
+pip3 install --user claude-chat-extractor
 
 # Add to PATH (add to ~/.bashrc or ~/.zshrc)
 export PATH="$HOME/.local/bin:$PATH"
@@ -124,7 +124,7 @@ export PATH="$HOME/.local/bin:$PATH"
 sudo dnf install python3-pip python3-setuptools
 
 # Install the tool
-pip3 install --user claude-conversation-extractor
+pip3 install --user claude-chat-extractor
 
 # Add to PATH (add to ~/.bashrc or ~/.zshrc)
 export PATH="$HOME/.local/bin:$PATH"
@@ -133,11 +133,11 @@ export PATH="$HOME/.local/bin:$PATH"
 #### Arch Linux
 ```bash
 # Install from AUR
-yay -S claude-conversation-extractor
+yay -S claude-chat-extractor
 
 # Or install manually
 sudo pacman -S python-pip
-pip install --user claude-conversation-extractor
+pip install --user claude-chat-extractor
 ```
 
 #### Generic Linux
@@ -154,7 +154,7 @@ pip install --user claude-conversation-extractor
 ```bash
 # Install Chocolatey first, then:
 # ⚠️  WARNING: This method is not yet implemented
-# choco install claude-conversation-extractor
+# choco install claude-chat-extractor
 ```
 
 **Note**: Chocolatey installation is planned but not yet available. For now, please use pip installation method above.
@@ -163,7 +163,7 @@ pip install --user claude-conversation-extractor
 ```bash
 # Install Scoop first, then:
 # ⚠️  WARNING: This method is not yet implemented
-# scoop install claude-conversation-extractor
+# scoop install claude-chat-extractor
 ```
 
 **Note**: Scoop installation is planned but not yet available. For now, please use pip installation method above.
@@ -172,7 +172,7 @@ pip install --user claude-conversation-extractor
 ```bash
 # Install Python from python.org
 # Then install the tool
-pip install claude-conversation-extractor
+pip install claude-chat-extractor
 ```
 
 #### Build Executable
@@ -193,19 +193,19 @@ python scripts/build-windows.py
 #### Pull and Run
 ```bash
 # Pull the image
-docker pull yourusername/claude-conversation-extractor
+docker pull yourusername/claude-chat-extractor
 
 # Run the tool
-docker run --rm -v $(pwd):/work yourusername/claude-conversation-extractor extract -u <uuid> -i /work/input.json
+docker run --rm -v $(pwd):/work yourusername/claude-chat-extractor extract -u <uuid> -i /work/input.json
 ```
 
 #### Build Locally
 ```bash
 # Build the image
-docker build -t claude-conversation-extractor .
+docker build -t claude-chat-extractor .
 
 # Run the tool
-docker run --rm -v $(pwd):/work claude-conversation-extractor --help
+docker run --rm -v $(pwd):/work claude-chat-extractor --help
 ```
 
 ## Development Installation
@@ -249,7 +249,7 @@ cce list -i sample.json
 ```bash
 # Find where the tool is installed
 which cce
-which claude-conversation-extractor
+which claude-chat-extractor
 
 # Check Python package location
 python -c "import claude_conversation_extractor; print(claude_conversation_extractor.__file__)"
@@ -262,25 +262,25 @@ python -c "import claude_conversation_extractor; print(claude_conversation_extra
 #### Command Not Found
 ```bash
 # Check if the tool is installed
-pip list | grep claude-conversation-extractor
+pip list | grep claude-chat-extractor
 
 # Check PATH
 echo $PATH
 
 # Reinstall if needed
-pip uninstall claude-conversation-extractor
-pip install claude-conversation-extractor
+pip uninstall claude-chat-extractor
+pip install claude-chat-extractor
 ```
 
 #### Permission Errors
 ```bash
 # Use user installation
-pip install --user claude-conversation-extractor
+pip install --user claude-chat-extractor
 
 # Or use virtual environment
 python -m venv claude-env
 source claude-env/bin/activate
-pip install claude-conversation-extractor
+pip install claude-chat-extractor
 ```
 
 #### Python Version Issues
@@ -299,7 +299,7 @@ python3.12 --version
 pip install --upgrade pip
 
 # Install with specific Python version
-python3.12 -m pip install claude-conversation-extractor
+python3.12 -m pip install claude-chat-extractor
 ```
 
 ### Platform-Specific Issues
@@ -322,18 +322,18 @@ python3.12 -m pip install claude-conversation-extractor
 ### Remove the Tool
 ```bash
 # Uninstall via pip
-pip uninstall claude-conversation-extractor
+pip uninstall claude-chat-extractor
 
 # Or if installed via package manager (when available)
-# Homebrew: brew uninstall claude-conversation-extractor (🚧 Coming Soon)
-# apt: sudo apt remove claude-conversation-extractor
-# dnf: sudo dnf remove claude-conversation-extractor
+# Homebrew: brew uninstall claude-chat-extractor (🚧 Coming Soon)
+# apt: sudo apt remove claude-chat-extractor
+# dnf: sudo dnf remove claude-chat-extractor
 ```
 
 ### Clean Up
 ```bash
 # Remove configuration files (if any)
-rm -rf ~/.config/claude-conversation-extractor
+rm -rf ~/.config/claude-chat-extractor
 
 # Remove from PATH (edit shell profile files)
 # Remove the export PATH line you added

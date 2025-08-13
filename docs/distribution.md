@@ -1,6 +1,6 @@
 # Distribution Guide
 
-This guide covers how to make `claude-conversation-extractor` available system-wide across different platforms.
+This guide covers how to make `claude-chat-extractor` available system-wide across different platforms.
 
 ## 1. PyPI Distribution (Recommended)
 
@@ -24,13 +24,13 @@ This guide covers how to make `claude-conversation-extractor` available system-w
 
 3. **Install globally:**
    ```bash
-   pip install claude-conversation-extractor
+   pip install claude-chat-extractor
    ```
 
 ### Usage after installation:
 ```bash
 # Full command
-claude-conversation-extractor extract -u <uuid> -i <input.json>
+claude-chat-extractor extract -u <uuid> -i <input.json>
 
 # Short aliases
 claude-extract -u <uuid> -i <input.json>
@@ -41,12 +41,12 @@ cce -u <uuid> -i <input.json>
 
 ### Create Homebrew Formula
 
-1. **Create a formula file** `claude-conversation-extractor.rb`:
+1. **Create a formula file** `claude-chat-extractor.rb`:
    ```ruby
    class ClaudeConversationExtractor < Formula
      desc "Extract Claude conversations to markdown"
      homepage "https://github.com/yourusername/claude-conversation-extractor"
-     url "https://files.pythonhosted.org/packages/source/c/claude-conversation-extractor/claude-conversation-extractor-0.1.0.tar.gz"
+url "https://files.pythonhosted.org/packages/source/c/claude-chat-extractor/claude-chat-extractor-0.1.0.tar.gz"
      sha256 "YOUR_SHA256_HERE"
      license "MIT"
    
@@ -90,7 +90,7 @@ brew tap yourusername/tap
 
 3. **Install:**
    ```bash
-   sudo dpkg -i deb_dist/python3-claude-conversation-extractor_*.deb
+   sudo dpkg -i deb_dist/python3-claude-chat-extractor_*.deb
    ```
 
 ### RPM (Red Hat/CentOS/Fedora)
@@ -138,8 +138,8 @@ ENTRYPOINT ["cce"]
 
 ### Build and distribute
 ```bash
-docker build -t claude-conversation-extractor .
-docker run claude-conversation-extractor --help
+docker build -t claude-chat-extractor .
+docker run claude-chat-extractor --help
 ```
 
 ## 6. Local Development Installation
@@ -188,7 +188,7 @@ jobs:
 python -m twine upload --repository testpypi dist/*
 
 # Install from test PyPI
-pip install --index-url https://test.pypi.org/simple/ claude-conversation-extractor
+pip install --index-url https://test.pypi.org/simple/ claude-chat-extractor
 ```
 
 ### Verify installation

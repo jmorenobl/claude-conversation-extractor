@@ -92,8 +92,8 @@ case $DISTRO in
         cp dist/*.tar.gz "$RPM_BUILD_DIR/SOURCES/"
         
         # Create spec file
-        cat > "$RPM_BUILD_DIR/SPECS/claude-conversation-extractor.spec" << 'EOF'
-Name:           claude-conversation-extractor
+        cat > "$RPM_BUILD_DIR/SPECS/claude-chat-extractor.spec" << 'EOF'
+Name:           claude-chat-extractor
 Version:        0.1.0
 Release:        1%{?dist}
 Summary:        Extract Claude conversations to markdown format
@@ -126,7 +126,7 @@ A command-line tool to extract and convert Claude conversations to markdown form
 %doc README.md
 %{python3_sitelib}/%{name}
 %{python3_sitelib}/%{name}-%{version}*
-%{_bindir}/claude-conversation-extractor
+%{_bindir}/claude-chat-extractor
 %{_bindir}/claude-extract
 %{_bindir}/cce
 
@@ -136,7 +136,7 @@ A command-line tool to extract and convert Claude conversations to markdown form
 EOF
         
         # Build RPM
-        rpmbuild -ba "$RPM_BUILD_DIR/SPECS/claude-conversation-extractor.spec"
+rpmbuild -ba "$RPM_BUILD_DIR/SPECS/claude-chat-extractor.spec"
         
         # Copy RPM packages
         cp "$RPM_BUILD_DIR"/RPMS/*/*.rpm "$BUILD_DIR/"
@@ -148,9 +148,9 @@ EOF
         print_status "Building Arch package..."
         
         # Create PKGBUILD
-        cat > "$BUILD_DIR/PKGBUILD" << 'EOF'
+cat > "$BUILD_DIR/PKGBUILD" << 'EOF'
 # Maintainer: Your Name <your.email@example.com>
-pkgname=claude-conversation-extractor
+pkgname=claude-chat-extractor
 pkgver=0.1.0
 pkgrel=1
 pkgdesc="Extract Claude conversations to markdown format efficiently"
@@ -203,7 +203,7 @@ echo "Installation complete!"
 echo "Add ~/.local/bin to your PATH if not already there:"
 echo "export PATH=\"\$HOME/.local/bin:\$PATH\""
 echo ""
-echo "Usage: claude-conversation-extractor --help"
+echo "Usage: claude-chat-extractor --help"
 EOF
         
         chmod +x "$BUILD_DIR/install.sh"
@@ -234,7 +234,7 @@ This directory contains packages for different Linux distributions:
 ## System-wide Installation
 
 After installing the package, the following commands will be available:
-- `claude-conversation-extractor` (full command)
+- `claude-chat-extractor` (full command)
 - `claude-extract` (short alias)
 - `cce` (shortest alias)
 
