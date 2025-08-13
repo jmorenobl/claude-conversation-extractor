@@ -36,9 +36,9 @@ pip install claude-conversation-extractor
 # Or build executable
 python scripts/build-windows.py
 
-# Or use package managers
-choco install claude-conversation-extractor
-scoop install claude-conversation-extractor
+# Or use package managers (🚧 Coming Soon)
+# choco install claude-conversation-extractor
+# scoop install claude-conversation-extractor
 ```
 
 ### 🌐 All Platforms (PyPI)
@@ -74,14 +74,14 @@ pip install claude-conversation-extractor
 pipx install claude-conversation-extractor
 ```
 
-### 3. **Homebrew (macOS)**
+### 3. **Homebrew (macOS)** 🚧 **Coming Soon**
 - **Pros**: Native macOS experience, easy updates, familiar to users
-- **Cons**: Requires formula creation, macOS only
+- **Cons**: Requires formula creation, macOS only, **Not yet implemented**
 - **Best for**: macOS users who prefer Homebrew
 
 **Setup**:
 ```bash
-# Create formula and submit to Homebrew
+# Create formula and submit to Homebrew (🚧 Coming Soon)
 # See homebrew/claude-conversation-extractor.rb template
 ```
 
@@ -96,14 +96,14 @@ pipx install claude-conversation-extractor
 ./scripts/build-linux.sh
 ```
 
-### 5. **Windows Package Managers**
+### 5. **Windows Package Managers** 🚧 **Coming Soon**
 - **Pros**: Native Windows experience, easy updates
-- **Cons**: Requires package creation, Windows only
+- **Cons**: Requires package creation, Windows only, **Not yet implemented**
 - **Best for**: Windows users, enterprise deployment
 
 **Setup**:
 ```bash
-# Create packages for Chocolatey/Scoop
+# Create packages for Chocolatey/Scoop (🚧 Coming Soon)
 # Or build executable with PyInstaller
 python scripts/build-windows.py
 ```
@@ -131,8 +131,8 @@ ENTRYPOINT ["cce"]
 
 ### **System Administrators**
 - **Linux**: Use distribution packages (`.deb`, `.rpm`)
-- **Windows**: Use Chocolatey/Scoop packages
-- **macOS**: Use Homebrew formula
+- **Windows**: Use pip installation or build executable (Chocolatey/Scoop 🚧 Coming Soon)
+- **macOS**: Use pipx or pip installation (Homebrew 🚧 Coming Soon)
 
 ### **Developers**
 - **All platforms**: `pip install claude-conversation-extractor`

@@ -2,6 +2,20 @@
 
 This guide covers how to install `claude-conversation-extractor` on different platforms and make it available system-wide.
 
+## 📦 Installation Methods Status
+
+| Method | Status | Availability |
+|--------|--------|--------------|
+| **pip** | ✅ **Available Now** | All platforms |
+| **pipx** | ✅ **Available Now** | macOS, Linux |
+| **Source** | ✅ **Available Now** | All platforms |
+| **Homebrew** | 🚧 **Coming Soon** | macOS |
+| **Chocolatey** | 🚧 **Coming Soon** | Windows |
+| **Scoop** | 🚧 **Coming Soon** | Windows |
+| **Docker** | 🚧 **Coming Soon** | All platforms |
+
+**Note**: Package manager installations (Homebrew, Chocolatey, Scoop) are planned for future releases but are not yet implemented. For now, please use pip or pipx installation methods.
+
 ## Quick Start
 
 ### From PyPI (Recommended)
@@ -61,15 +75,18 @@ brew install pipx
 pipx install claude-conversation-extractor
 ```
 
-#### Homebrew (Alternative)
+#### Homebrew (Alternative) 🚧 **Not Yet Implemented**
 ```bash
 # Install via Homebrew (requires creating a formula first)
-brew install claude-conversation-extractor
+# ⚠️  WARNING: This method is not yet implemented
+# brew install claude-conversation-extractor
 
 # Or if using a custom tap
-brew tap yourusername/tap
-brew install claude-conversation-extractor
+# brew tap yourusername/tap
+# brew install claude-conversation-extractor
 ```
+
+**Note**: Homebrew installation is planned but not yet available. For now, please use pip or pipx installation methods above.
 
 #### Manual Installation
 ```bash
@@ -133,17 +150,23 @@ pip install --user claude-conversation-extractor
 
 ### 🪟 Windows
 
-#### Chocolatey
+#### Chocolatey 🚧 **Not Yet Implemented**
 ```bash
 # Install Chocolatey first, then:
-choco install claude-conversation-extractor
+# ⚠️  WARNING: This method is not yet implemented
+# choco install claude-conversation-extractor
 ```
 
-#### Scoop
+**Note**: Chocolatey installation is planned but not yet available. For now, please use pip installation method above.
+
+#### Scoop 🚧 **Not Yet Implemented**
 ```bash
 # Install Scoop first, then:
-scoop install claude-conversation-extractor
+# ⚠️  WARNING: This method is not yet implemented
+# scoop install claude-conversation-extractor
 ```
+
+**Note**: Scoop installation is planned but not yet available. For now, please use pip installation method above.
 
 #### Manual Installation
 ```bash
@@ -301,8 +324,8 @@ python3.12 -m pip install claude-conversation-extractor
 # Uninstall via pip
 pip uninstall claude-conversation-extractor
 
-# Or if installed via package manager
-# Homebrew: brew uninstall claude-conversation-extractor
+# Or if installed via package manager (when available)
+# Homebrew: brew uninstall claude-conversation-extractor (🚧 Coming Soon)
 # apt: sudo apt remove claude-conversation-extractor
 # dnf: sudo dnf remove claude-conversation-extractor
 ```

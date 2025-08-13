@@ -44,9 +44,9 @@ pip install .
 ```
 
 #### Option 3: Platform-Specific
-- **macOS**: `pipx install claude-conversation-extractor` (recommended) or `brew install claude-conversation-extractor`
+- **macOS**: `pipx install claude-conversation-extractor` (recommended) or `pip install claude-conversation-extractor`
 - **Linux**: Use distribution package managers or build scripts
-- **Windows**: Use Chocolatey, Scoop, or build executable
+- **Windows**: Use pip installation or build executable
 
 📖 **See [Installation Guide](docs/installation.md) for detailed instructions**
 
@@ -150,10 +150,10 @@ Generated markdown includes:
 ## 📦 Distribution & Installation
 
 ### Package Managers
-- **PyPI**: `pip install claude-chat-extractor`
-- **Homebrew**: `brew install claude-chat-extractor` (macOS)
-- **Chocolatey**: `choco install claude-chat-extractor` (Windows)
-- **Scoop**: `scoop install claude-chat-extractor` (Windows)
+- **PyPI**: `pip install claude-chat-extractor` ✅ **Available Now**
+- **Homebrew**: `brew install claude-chat-extractor` (macOS) 🚧 **Coming Soon**
+- **Chocolatey**: `choco install claude-chat-extractor` (Windows) 🚧 **Coming Soon**
+- **Scoop**: `scoop install claude-chat-extractor` (Windows) 🚧 **Coming Soon**
 
 ### Build Scripts
 - **Linux**: `./scripts/build-linux.sh` - Creates .deb, .rpm, and Arch packages
