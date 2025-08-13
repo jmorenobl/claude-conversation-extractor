@@ -1,6 +1,6 @@
 [project]
 name = "claude-chat-extractor"
-version = "0.1.0"
+version = "0.2.0"
 description = "A command-line tool to extract and convert Claude conversations to markdown format efficiently."
 readme = "README.md"
 authors = [
