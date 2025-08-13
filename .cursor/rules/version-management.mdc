@@ -1,0 +1,83 @@
+---
+alwaysApply: true
+description: Enforce version–tag alignment and release workflow guardrails
+---
+
+# Version Management & Release Consistency
+
+## 🚨 Critical Rule: Version–Tag Alignment
+- Tags MUST follow `vX.Y.Z` (e.g., `v0.2.1`).
+- `pyproject.toml`’s `[project].version` MUST equal the tag value without the leading `v`.
+- Never create a Git tag before updating and committing the version in code.
+
+See also: [pyproject.toml](mdc:pyproject.toml), [release workflow](mdc:.github/workflows/release.yml).
+
+## Mandatory Pre-Release Checklist
+1. Update version in [pyproject.toml](mdc:pyproject.toml)
+2. Build locally and verify artifacts carry the new version
+3. Commit and push the version change
+4. Create the tag `vX.Y.Z`
+5. Push the tag to trigger the pipeline
+
+Quick reference:
+```bash
+# 1) Update version in pyproject.toml to X.Y.Z
+uv run python -m build
+ls -la dist/  # verify X.Y.Z
+
+git add pyproject.toml
+git commit -m "feat: Bump version to X.Y.Z"
+git push origin main
+
+git tag vX.Y.Z
+git push origin vX.Y.Z
+```
+
+## CI Guardrail: Fail if Version ≠ Tag
+Add this step early in the release workflow to prevent mismatches.
+
+```yaml
+- name: Verify version matches tag
+  if: startsWith(github.ref, 'refs/tags/')
+  run: |
+    TAG="${GITHUB_REF_NAME#v}"
+    PYPROJECT_VERSION=$(python - <<'PY'
+import sys
+try:
+    import tomllib  # Python 3.11+
+except ModuleNotFoundError:
+    import tomli as tomllib
+with open('pyproject.toml','rb') as f:
+    print(tomllib.load(f)['project']['version'])
+PY
+    )
+    echo "Tag: $TAG"
+    echo "Project version: $PYPROJECT_VERSION"
+    if [ "$TAG" != "$PYPROJECT_VERSION" ]; then
+      echo "ERROR: Tag ($TAG) does not match project version ($PYPROJECT_VERSION)" >&2
+      exit 1
+    fi
+```
+
+## Versioning Policy
+- Use Semantic Versioning (MAJOR.MINOR.PATCH)
+- Patch: fixes/internal changes; Minor: backward-compatible features; Major: breaking changes
+
+## Emergency Fixes
+If a wrong tag was pushed:
+```bash
+git tag -d vX.Y.Z
+git push origin --delete vX.Y.Z
+# fix version in code, rebuild, commit
+# then re-tag and push the correct version
+```
+
+## Common Mistakes to Avoid
+- Creating a tag while code still has the old version
+- Pushing a tag before committing the version bump
+- Using `0.2.1` in code but `v0.2.1` in tags is required format
+
+## Cross-References
+- Primary version source: [pyproject.toml](mdc:pyproject.toml)
+- CI workflow: [release.yml](mdc:.github/workflows/release.yml)
+- Contributor docs: [README.md](mdc:README.md)
