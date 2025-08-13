@@ -94,7 +94,7 @@ Once installed, you can use the tool from any directory:
 ```bash
 # From anywhere on your system
 cce --help
-cce list -i /path/to/conversations.json
+cce list-conversations -i /path/to/conversations.json
 cce extract -u <uuid> -i /path/to/conversations.json
 ```
 

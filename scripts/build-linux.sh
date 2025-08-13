@@ -245,7 +245,7 @@ After installing the package, the following commands will be available:
 cce extract -u <uuid> -i <input.json>
 
 # List conversations
-cce list -i <input.json>
+cce list-conversations -i <input.json>
 
 # Get help
 cce --help

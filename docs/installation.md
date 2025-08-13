@@ -242,7 +242,7 @@ cce --help
 cce --version
 
 # Test list command (if you have a sample file)
-cce list -i sample.json
+cce list-conversations -i sample.json
 ```
 
 ### Check Installation Location
