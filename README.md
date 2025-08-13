@@ -50,6 +50,25 @@ pip install .
 
 📖 **See [Installation Guide](docs/installation.md) for detailed instructions**
 
+## 🛠️ Development & Contributing
+
+### **🚨 Critical: Version Management**
+Before contributing or creating releases, **MUST READ**:
+- **[Version Management Rules](docs/version-management.md)** - Critical workflow for releases
+- **[Coding Standards](docs/coding-standards.md)** - Python development guidelines
+
+### **Release Workflow**
+The release pipeline is triggered by Git tags. **NEVER create tags without updating the project version first!**
+
+```bash
+# ✅ CORRECT workflow:
+# 1. Update version in pyproject.toml
+# 2. Build package: uv run python -m build
+# 3. Commit changes: git commit -m "feat: Bump version to X.Y.Z"
+# 4. Create tag: git tag vX.Y.Z
+# 5. Push: git push origin vX.Y.Z
+```
+
 ### Basic Usage
 
 ```bash
