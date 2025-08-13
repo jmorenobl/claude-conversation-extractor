@@ -29,10 +29,22 @@ jobs:
       - name: Build package
         run: python -m build
 
+      - name: Validate package
+        run: |
+          python -m twine check dist/*
+          echo "Package validation completed successfully"
+          
+      - name: List package contents
+        run: |
+          echo "Built packages:"
+          ls -la dist/
+          echo "Package metadata:"
+          python -m twine check dist/* --verbose
+
       - name: Upload to Test PyPI
         if: matrix.python-version == '3.12'
         run: |
-          python -m twine upload --repository testpypi dist/*
+          python -m twine upload --repository-url https://test.pypi.org/legacy/ --verbose dist/*
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.TEST_PYPI_API_TOKEN }}
@@ -70,7 +82,7 @@ jobs:
 
       - name: Install from PyPI
         run: |
-          pip install claude-conversation-extractor
+          pip install claude-chat-extractor
           cce --help
         env:
           TWINE_USERNAME: __token__
