@@ -242,7 +242,7 @@ For issues and questions, please open an issue on GitHub.
 
 ## Recent Updates
 
-- ✅ **v0.1.0**: Initial release with full functionality
+- ✅ **v0.2.1**: Initial release with full functionality
 - ✅ Streaming JSON processing for large files
 - ✅ Complete CLI with extract and list commands
 - ✅ Comprehensive test suite
